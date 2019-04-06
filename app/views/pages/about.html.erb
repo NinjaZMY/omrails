@@ -1,13 +1,56 @@
-<div style="position:absolute;top:30px;left:25px;">
+<style>
+.popover-btn
+{
+    width:100%;
+}
+
+ .popover-header 
+{
+    opacity:0.7;
+    background-color:black;
+    max-width:100%;
+    max-height:20%;
+    text-align:center;
+    color:lightgray;
+    position:relative;
+    bottom:0px;
+    
+}
+
+.popover  {
+    max-width:100%;
+    height:22%;
+    background-color:lightgray;
+    opacity:0.9;
+    position:relative;
+    
+}
+
+
+#popover-content
+{
+    
+    position:relative;
+    top:-4px;
+    
+    
+
+}
+
+</style>
+
+
+
+<div  class="container" style="position:relative;top:50px;left:25px;">
 
         <h1>About my website ^_^ 
         </h1>
 
-        <p>We're working on rails ;)</p>
+        We're working on rails ;)
 
 
             <p>
-                <marquee scrolldelay="0" behavior=alternate style="width:100%">
+                <marquee scrollamount="5" scrolldelay="0" behavior=alternate style="width:460px">
                 I'm mohamed youssef zehani 
                 </marquee>    
         <br>
@@ -16,18 +59,27 @@
                 & I make a lot of artsy stuff 
                 </marquee>
             </p>
-</div>
+
 
 
 
 <img src="phone.png" width="  
-  34%" height="184" style="position:absolute;left:-5px;top:20px" > 
-<div class='' style="position:relative;left:450px;height:300px;overflow-y:auto;border-width:4px;width:200px">
+  500px" height="184" style="position:relative;left:-25px;bottom:170px;display:block" > 
+</div>
+<div class="container">
+  <div class='' style="position:relative;bottom:100px;left:0px;height:300px;overflow-y:auto;border-width:4px;width:400px">
     <marquee  style="height:25px;position:relative;" scrolldelay="50" direction=up behavior=alternate>
-                delay  50     <button class="btn btn-secondary" 
-        style="height:20px;position:relative;top:0px">
-         <font style="position:relative;top:-8px">  +  </font> </button>
-        </marquee>
+                delay  50     
+            <button data-placement="right" data-toggle="popover" data-container="body"
+            data-placement="left" type="button" data-html="true"  id="popover" 
+            class=" btn btn-secondary" 
+            style="height:20px;position:relative;top:0px">
+                <font style="position:relative;top:-8px">  +  
+                </font>
+             </button>
+        
+     </marquee>
+
     <marquee  style="height:25px;position:relative;" scrolldelay="100" direction=up behavior=alternate>
             delay 100
     </marquee>  
@@ -53,29 +105,111 @@
             delay 1000
     </marquee>
     
-    
+    </div>    
 </div>
-<!-- Button trigger modal -->
-<button style="position:absolute; left:10%;top:210px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div  class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
+
+
+ 
+<div class="d-none" >
+    <div id="popover-content" align=center  >
+            <button  style="height:20px" type="button" class="popover-btn btn btn-secondary">
+                        <font style="position:relative;top:-8px">
+                            modifier Site 
+                            </font>
+            </button>
+        <br>
+        
+            <button  style="height:20px" type="button" class="popover-btn btn btn-secondary">
+                <font style="position:relative;top:-8px">
+                    Scrapper Site 
+                    </font>
+            </button>
+        <br>
+       
+            <button style="height:20px" type="button" class="popover-btn btn btn-secondary">
+                <font style="position:relative;top:-8px">
+                    modifier Emplacement 
+                    </font>
+            </button>
+            <br>
+                    <button style="height:20px" type="button" class="popover-btn btn btn-secondary">
+                        <font style="position:relative;top:-8px">
+                        Paramétrer Veille
+                        </font>
+                    </button>
+                <br>
+                    <button style="height:20px" type="button" class="popover-btn btn btn-secondary">
+                        <font style="position:relative;top:-8px">
+                        Supprimer Site 
+                        </font>
+                    </button> 
+            
     </div>
-  </div>
+    
+    <div id="header" align='center' style="middle-align:center" >
+    <h1 style="position:relative;bottom:15px;left:0%;">
+    Actions
+    </h1>
+    </div>
+</div>
+
+<script>
+
+$("#popover").popover({
+    html: true, 
+    title : $('#header'),
+	content: $('#popover-content'),
+        
+});
+
+/*$('button').on
+('shown.bs.popover',
+function ()
+{
+
+
+
+
+}
+)
+
+$(document).on
+('blur','.popover', 
+function()
+{
+    
+$(this).popover('hide');
+    
+                   
+
+}
+);
+*/
+
+
+
+document.onclick=function()
+{
+    popover=document.getElementsByClassName('popover')[0]
+    button=document.getElementById('popover').id;
+    if(typeof popover !="undefined")
+    {    
+        var specifiedElement = document.getElementsByClassName('popover')[0];
+        document.addEventListener('click', function(event) {
+            var isClickInside = specifiedElement.contains(event.target);
+            x=event.target.outerHTML;
+            if (isClickInside) 
+            {
+            console.log('You clicked inside '+x)
+            }
+            else if(event.target.id!=button&&x.indexOf('button')!=0)
+            {
+            console.log('You clicked outside '+x);
+            $('.popover').popover('hide');
+            }
+        });
+    }
+}
+</script>

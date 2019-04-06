@@ -1,18 +1,87 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Omrails</title>
+  <style>
+  footer 
+  {
+  position:relative;
+  
+  height:100%;
+  
+  background: #ededed;
+  width: 100%;
+  }
+  </style>
+  <title>One Month Rails Project
+  </title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= link_to "Home" , root_path %>
-    <%= link_to "About" , about_path %>
-    <%= link_to "Contact" , contact_path %>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position:inline-block">
+    <%= link_to "One Month Rails", root_path, class: "navbar-brand",style:'position:relative;left:7%;' %>  
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarColor01" style="position:relative;left:7%">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="<%=root_path%>">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "About", about_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Contact", contact_path, class: "nav-link" %>
+          </li>
+          
+        </ul>
+        
+        
+      </div>    
+    </nav>
+
+    <!-- Page Content -->
+    <!-- Footer -->
+   
+ 
     <%= yield %>
+    
+      <footer  class=" small text-muted" >
+      <div class="container">
+        <hr>
+        <center>
+          <p>© 2019 One Month</p>
+        </center>
+      </div>
+    </footer>
+
   </body>
-</html>
+<script>
+
+document.body.onload=function()
+{
+  x=document.body.offsetHeight; 
+  h=screen.height;
+    
+  z=460;
+  
+    if(x>z)
+    {
+    x=0;  
+    } 
+    else
+    {//z>=x
+    x= z; 
+    } 
+    
+  footer=document.getElementsByTagName('footer')[0];
+  footer.style.top=x+"px";
+}
+</script>
+  </html>
