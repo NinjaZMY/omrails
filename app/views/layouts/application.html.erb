@@ -4,12 +4,11 @@
   <style>
   footer 
   {
-  position:relative;
-  
-  height:100%;
-  
-  background: #ededed;
-  width: 100%;
+   position: absolute;
+    width:100%;
+    height:8%;
+   background: #ededed;
+       bottom: -1%;
   }
   </style>
   <title>One Month Rails Project
@@ -64,24 +63,7 @@
   </body>
 <script>
 
-document.body.onload=function()
-{
-  x=document.body.offsetHeight; 
-  h=screen.height;
-    
-  z=460;
-  
-    if(x>z)
-    {
-    x=0;  
-    } 
-    else
-    {//z>=x
-    x= z; 
-    } 
-    
-  footer=document.getElementsByTagName('footer')[0];
-  footer.style.top=x+"px";
-}
+
+
 </script>
   </html>
